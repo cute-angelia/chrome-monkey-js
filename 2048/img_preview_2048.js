@@ -6,15 +6,18 @@
 // @author       rose1988c
 // @match        https://*/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-// @grant        GM_xmlhttpRequest
-// @require      https://code.jquery.com/jquery-3.4.1.min.js
+// @grant          GM_xmlhttpRequest
+// @require https://code.jquery.com/jquery-3.4.1.min.js
 // ==/UserScript==
 
 (function () {
   'use strict';
+  $('head').append($(`
+  <style>
+  </style>`));
 
   var href = document.location.href;
-  console.log("hello, 2048", href);
+  // console.log("hello, 2048", href);
 
   if (href.indexOf("/2048/") === -1) {
     return
@@ -43,7 +46,7 @@
               thattd.append("<br />");
             }
             // console.log( index + ": " + $(this).attr('src') );
-            thattd.append("<img style='width:100px;height:100px;' src='" + $(this).attr('src') + "' />");
+            thattd.append("<img object-fit='contain' style='width:200px;' src='" + $(this).attr('src') + "' />");
           });
         }
       });
