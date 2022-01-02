@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         2048帖子高亮
 // @namespace    http://2048.net/
-// @version      0.1
+// @version      0.2
 // @description  2048帖子高亮!
 // @author       rose1988c
 // @match        https://*/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant          GM_xmlhttpRequest
 // @require https://code.jquery.com/jquery-3.4.1.min.js
+// @license GNU GPLv3
 // ==/UserScript==
 
 (function() {
