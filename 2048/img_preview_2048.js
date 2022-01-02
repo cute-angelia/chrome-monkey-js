@@ -1,14 +1,13 @@
 // ==UserScript==
 // @name         2048帖子高亮
 // @namespace    http://2048.net/
-// @version      0.2
+// @version      0.1
 // @description  2048帖子高亮!
 // @author       rose1988c
 // @match        https://*/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant          GM_xmlhttpRequest
 // @require https://code.jquery.com/jquery-3.4.1.min.js
-// @license GNU GPLv3
 // ==/UserScript==
 
 (function() {
@@ -42,6 +41,12 @@
 		var url = document.location.origin + "/2048/" + $(this).find("a").attr("href");
 
 		var thattd = that.find("td:eq(1)");
+
+
+        if (href.indexOf("search.php") >= 0) {
+
+            thattd = that.find("th:eq(0)");
+        }
 
 		// console.log(url,url.indexOf("read.php") >= 0);
 		if (url.indexOf("read.php") >= 0) {
