@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         2048帖子高亮
 // @namespace    http://2048.net/
-// @version      0.1
+// @version      0.3
 // @description  2048帖子高亮!
 // @author       rose1988c
 // @match        https://*/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant          GM_xmlhttpRequest
+// @license GNU GPLv3
 // @require https://code.jquery.com/jquery-3.4.1.min.js
 // ==/UserScript==
 
@@ -42,31 +43,35 @@
 
 		var thattd = that.find("td:eq(1)");
 
+        // thattd.append("<img object-fit='contain' style='width:200px;' src='" + "https://www.ressim.net/resimler/2021/12/20/18_10250321.jpg" + "' />")
 
         if (href.indexOf("search.php") >= 0) {
-
             thattd = that.find("th:eq(0)");
         }
 
-		// console.log(url,url.indexOf("read.php") >= 0);
+		console.log(url,url.indexOf("read.php") >= 0);
 		if (url.indexOf("read.php") >= 0) {
 			GM_xmlhttpRequest({
 				method: 'GET',
 				url: url,
 				headers: {
-					'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36',
+					'User-agent': window.navigator.userAgent,
 					'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
                     'cookie': document.cookie,
                     'referer': href,
 				},
 				onload: function(result) {
 					var doc = result.responseText;
+                    console.log(doc);
 					$(doc).find('.att_img > img').each(function(index) {
 						if (index == 0) {
 							thattd.append("<br />");
 						}
-						//console.log( index + ": " + $(this).attr('src'),thattd );
-						thattd.append("<img object-fit='contain' style='width:200px;' src='" + $(this).attr('src') + "' />");
+						// console.log( index + ": " + $(this).attr('src'),thattd );
+                        var src = $(this).attr('src');
+                        src = src.replace("http://", "https://")
+
+						thattd.append("<img object-fit='contain' style='width:200px;' src='" + src + "' />");
 					});
 				}
 			});
