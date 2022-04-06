@@ -4,7 +4,7 @@
 // @version      0.3
 // @description  2048帖子高亮!
 // @author       rose1988c
-// @match        https://*/*
+// @match        https://hjd2048.com
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant          GM_xmlhttpRequest
 // @license GNU GPLv3
