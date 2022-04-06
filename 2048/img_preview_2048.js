@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         2048帖子高亮
 // @namespace    http://2048.net/
-// @version      0.0.4
+// @version      0.0.5
 // @description  2048帖子高亮!
 // @author       rose1988c
 // @match        https://*
