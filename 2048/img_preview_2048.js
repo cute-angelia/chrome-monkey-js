@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         2048帖子高亮
 // @namespace    http://2048.net/
-// @version      0.3
+// @version      0.0.4
 // @description  2048帖子高亮!
 // @author       rose1988c
-// @match        https://hjd2048.com
+// @match        https://*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-// @grant          GM_xmlhttpRequest
+// @grant        GM_xmlhttpRequest
+// @updateURL    https://raw.githubusercontent.com/cute-angelia/chrome-monkey-js/master/2048/img_preview_2048.js
 // @license GNU GPLv3
 // @require https://code.jquery.com/jquery-3.4.1.min.js
 // ==/UserScript==
@@ -28,10 +29,6 @@
     }
 
 	var href = document.location.href;
-
-    //console.log(document.cookie);
-    //console.log(getCookies());
-
 	if (href.indexOf("/2048/") === -1) {
 		return
 	}
